@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Redactor Médico IA",
+  "description": "Asistente IA para mejorar historias clínicas. Se inyecta en cualquier campo textarea.",
+  "version": "1.0",
+  "permissions": ["scripting", "activeTab", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["iframe.html", "iframe.css", "iframe.js", "recomendaciones.html"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "action": {
+    "default_title": "Redactor Médico IA",
+    "default_icon": "icon.png"
+  }
+}
