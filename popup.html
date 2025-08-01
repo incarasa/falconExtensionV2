@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Falcon Asist</title>
+  <style>
+    body{
+      font-family:Arial, sans-serif;
+      margin:0; padding:1rem; width:240px; background:#f9f9f9;
+      display:flex; flex-direction:column; gap:.8rem;
+    }
+    h1{font-size:1.1rem; margin:0;}
+    .fila{
+      display:flex; align-items:center; justify-content:space-between;
+    }
+
+    /* 🔵  Estilos del interruptor */
+    .switch{
+      position:relative; display:inline-block; width:46px; height:26px;
+    }
+    .switch input{opacity:0; width:0; height:0;}
+
+    .slider{
+      position:absolute; cursor:pointer; inset:0;
+      background:#ccc; border-radius:34px; transition:.2s;
+    }
+    .slider:before{
+      content:""; position:absolute; height:20px; width:20px; left:3px; top:3px;
+      background:white; border-radius:50%; transition:.2s;
+    }
+
+    input:checked + .slider{ background:#1769ff; }
+    input:checked + .slider:before{ transform:translateX(20px); }
+
+    /* Sombra opcional */
+    .slider, .slider:before{ box-shadow:0 0 2px rgba(0,0,0,.3); }
+  </style>
+</head>
+<body>
+  <h1>🦅 Falcon Assist</h1>
+
+  <div class="fila">
+    <span>Botones IA</span>
+
+    <!-- interruptor -->
+    <label class="switch">
+      <input type="checkbox" id="toggleSwitch">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <!-- Script externo -->
+  <script src="popup.js"></script>
+</body>
+</html>
